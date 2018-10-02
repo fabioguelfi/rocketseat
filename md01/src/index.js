@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
-
+import { StyleSheet, View, Button } from 'react-native'
+import './config/ReactotronConfig'
 import Todo from './components/Todo'
+
+console.tron.log('Teste')
 
 export default class App extends Component {
   state = {
