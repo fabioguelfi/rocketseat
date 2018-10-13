@@ -26,7 +26,23 @@
     "no-underscore-dangle": "off",
     "arrow-parens": [2, "as-needed"],
     "semi": "off",
-    "function-paren-newline": ["error", "consistent"]
+    "function-paren-newline": ["error", "consistent"],
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": false
+        },
+        "AssignmentExpression": {
+          "array": false,
+          "object": false
+        }
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
