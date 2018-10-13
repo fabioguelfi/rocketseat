@@ -1,6 +1,7 @@
 import React from 'react'
-import RootStack from './routes'
+import './config/ReactotronConfig'
+import { View } from 'react-native'
 
-const App = () => <RootStack />
+const App = () => <View />
 
 export default App
