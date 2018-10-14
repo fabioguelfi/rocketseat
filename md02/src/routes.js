@@ -1,28 +1,49 @@
-import { createStackNavigator, createTabNavigator } from 'react-navigation'
+import React from 'react'
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
+
+import HeaderRight from './components/headerRight'
 
 import Welcome from './pages/welcome'
 import Repositories from './pages/repositories'
 import Organizations from './pages/organizations'
 
-const Routes = createStackNavigator(
+import { colors } from './styles'
+
+const createNavigator = (isLogged = false) => createStackNavigator(
   {
     Welcome: {
       screen: Welcome,
     },
     User: {
-      screen: createTabNavigator({
-        Repositories: {
-          screen: Repositories,
+      screen: createBottomTabNavigator(
+        {
+          Repositories: {
+            screen: Repositories,
+          },
+          Organizations: {
+            screen: Organizations,
+          },
         },
-        Organizations: {
-          screen: Organizations,
+        {
+          tabBarOptions: {
+            showIcon: true,
+            showLabel: false,
+            activeTintColor: colors.white,
+            inactiveTintColor: colors.whiteTransparent,
+            style: {
+              backgroundColor: colors.secundary,
+            },
+          },
         },
-      }),
+      ),
     },
   },
   {
-    initialRouteName: 'Welcome',
+    initialRouteName: isLogged ? 'User' : 'Welcome',
+    navigationOptions: ({ navigation }) => ({
+      headerRight: <HeaderRight navigation={navigation} />,
+    }),
   },
 )
 
-export default Routes
+export default createNavigator

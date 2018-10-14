@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import {
-  View, Text, TextInput, TouchableOpacity, StatusBar, ActivityIndicator,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  ActivityIndicator,
+  AsyncStorage,
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { StackActions, NavigationActions } from 'react-navigation'
@@ -30,6 +36,10 @@ export default class Welcome extends Component {
     return user
   }
 
+  saveUser = async username => {
+    await AsyncStorage.setItem('@Githuber:username', username)
+  }
+
   signIn = async () => {
     const { username } = this.state
 
@@ -39,6 +49,7 @@ export default class Welcome extends Component {
 
     try {
       await this.checkUserExists(username)
+      await this.saveUser(username)
       const { navigation } = this.props
       const resetAction = StackActions.reset({
         index: 0,
@@ -52,6 +63,7 @@ export default class Welcome extends Component {
   }
 
   render() {
+    const { errorMessage, loading } = this.state
     return (
       <View style={styles.contaier}>
         <StatusBar barStyle="light-content" />
@@ -60,7 +72,7 @@ export default class Welcome extends Component {
           Para continuar precisamos que você informe seu usuário do github
         </Text>
 
-        {!!this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
+        {!!errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
 
         <View style={styles.form}>
           <TextInput
@@ -74,7 +86,7 @@ export default class Welcome extends Component {
           />
 
           <TouchableOpacity style={styles.button} onPress={this.signIn}>
-            {this.state.loading ? (
+            {loading ? (
               <ActivityIndicator size="small" color="#fff" />
             ) : (
               <Text style={styles.buttonText}>Prossegrir</Text>
