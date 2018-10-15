@@ -23,9 +23,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.todos.map(todo => (
-          <Todo key={todo.id} title={todo.text} />
-        ))}
+        {this.state.todos.map(todo => <Todo key={todo.id} title={todo.text} />)}
         <Button title="Adicionar todo" onPress={this.addTodo} />
       </View>
     )
