@@ -1,11 +1,14 @@
-import { Dimensions } from 'react-native'
-
-const { width, height } = Dimensions.get('window')
+import colors from './colors'
+import metrics from './metrics'
 
 export default {
-  basePadding: 20,
-  baseMargin: 10,
-  baseRadius: 3,
-  screenWidth: width < height ? width : height,
-  screenHeight: width < height ? height : width,
+  safeArea: {
+    flex: 1,
+    backgroundColor: colors.secundary,
+  },
+  box: {
+    backgroundColor: colors.white,
+    borderRadius: metrics.baseRadius,
+    padding: metrics.basePadding,
+  },
 }
