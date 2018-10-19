@@ -8,9 +8,10 @@ import RepositoryItem from './components/repositoryItem'
 import styles from './styles'
 
 export default class Repositories extends Component {
-  static navigationOptions = ({ navigation }) => {
+  static navigationOptions = () => {
     return {
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={26} color={tintColor} />,
+      headerTitle: 'Tab 1 Screen',
     }
   }
 

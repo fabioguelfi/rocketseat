@@ -7,6 +7,11 @@
   "plugins": ["react-native", "jsx-a11y", "import"],
   "extends": ["airbnb", "plugin:react-native/all"],
   "rules": {
+    "react/destructuring-assignment": [
+      true,
+      "always",
+      { "ignoreClassFields": true }
+    ],
     "react/jsx-filename-extension": [
       "error",
       {
