@@ -23,9 +23,11 @@ export default class App extends Component {
   }
 
   render() {
-    if (!this.state.userChecked) return null
+    const { userChecked, userLogged } = this.state
 
-    const Routes = createNavigator(this.state.userLogged)
+    if (!userChecked) return null
+
+    const Routes = createNavigator(userLogged)
 
     return <Routes />
   }

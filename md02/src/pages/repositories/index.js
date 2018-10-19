@@ -10,7 +10,6 @@ import styles from './styles'
 export default class Repositories extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Repositórios',
       tabBarIcon: ({ tintColor }) => <Icon name="list" size={26} color={tintColor} />,
     }
   }
