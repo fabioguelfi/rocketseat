@@ -2,12 +2,22 @@
   "presets": ["module:metro-react-native-babel-preset"],
   "plugins": [
     [
-      "module-resolver",
+      "babel-plugin-root-import",
       {
-        "cwd": "babelrc",
-        "root": ["./src"],
-        "extensions": [".js", ".ios.js", ".android.js"]
+        "rootPathSuffix": "src"
       }
     ]
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "babel-plugin-root-import",
+          {
+            "rootPathSuffix": "src"
+          }
+        ]
+      ]
+    }
+  }
 }

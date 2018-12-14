@@ -1,11 +1,11 @@
 {
   "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:react-native/all"],
+  "plugins": ["react-native", "jsx-a11y", "import"],
   "env": {
     "browser": true,
     "jest": true
   },
-  "plugins": ["react-native", "jsx-a11y", "import"],
-  "extends": ["airbnb", "plugin:react-native/all"],
   "rules": {
     "react/destructuring-assignment": [
       true,
@@ -49,15 +49,12 @@
       }
     ]
   },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      },
-      "babel-module": {}
-    }
-  },
   "globals": {
     "__DEV__": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": {}
+    }
   }
 }
