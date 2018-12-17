@@ -1,0 +1,60 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:react-native/all"],
+  "plugins": ["react-native", "jsx-a11y", "import"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "react/destructuring-assignment": [
+      true,
+      "always",
+      { "ignoreClassFields": true }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "global-require": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "arrow-body-style": 0,
+    "no-underscore-dangle": "off",
+    "arrow-parens": [2, "as-needed"],
+    "semi": "off",
+    "function-paren-newline": ["error", "consistent"],
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": false
+        },
+        "AssignmentExpression": {
+          "array": false,
+          "object": false
+        }
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": {}
+    }
+  },
+  "globals": {
+    "__DEV__": true
+  }
+}
