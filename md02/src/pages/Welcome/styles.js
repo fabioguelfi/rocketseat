@@ -9,12 +9,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
   },
+
   title: {
     textAlign: 'center',
     color: colors.white,
     fontSize: 24,
     fontWeight: 'bold',
   },
+
   text: {
     textAlign: 'center',
     marginTop: metrics.baseMargin,
@@ -22,15 +24,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 21,
   },
+
+  error: {
+    color: colors.danger,
+    fontSize: 16,
+    marginTop: metrics.baseMargin,
+    textAlign: 'center',
+  },
+
   form: {
     marginTop: metrics.baseMargin * 2,
   },
+
   input: {
     backgroundColor: colors.white,
     borderRadius: metrics.baseRadius,
     height: 44,
     paddingHorizontal: metrics.basePadding,
   },
+
   button: {
     marginTop: metrics.baseMargin,
     backgroundColor: colors.primary,
@@ -39,6 +51,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
