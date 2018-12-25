@@ -49,6 +49,7 @@ class Main extends Component {
 
   render() {
     console.tron.log(this.props)
+    const { favorites } = this.props
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" />
@@ -61,7 +62,7 @@ class Main extends Component {
 
           <View style={styles.form}>
             {!!this.props.favorites.errorOnAdd && (
-              <Text style={styles.error}>{this.props.favorites.errorOnAdd}</Text>
+              <Text style={styles.error}>{favorites.errorOnAdd}</Text>
             )}
 
             <TextInput
@@ -91,8 +92,7 @@ class Main extends Component {
         <View style={styles.footer}>
           <TouchableOpacity onPress={this.navigateToFavorites}>
             <Text style={styles.footerLink}>
-              Meus favoritos (
-              {this.props.favorites.data.length})
+              Meus favoritos  ({favorites.data.length})
             </Text>
           </TouchableOpacity>
         </View>
