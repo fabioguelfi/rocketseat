@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary,
   },
+  headerRight: {
+    marginRight: metrics.baseMargin,
+  },
 })
 
 export default styles
